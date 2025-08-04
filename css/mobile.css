@@ -5,19 +5,20 @@
     font-size: 14px;
     margin: 0;
     padding: 0;
+    line-height: 1.4;
   }
 
   /* Main wrapper adjustments */
   div#wrapper {
     width: 100%;
-    padding: 10px;
+    padding: 15px 10px 80px 10px; /* 底部留出菜单空间 */
     margin: 0;
     box-sizing: border-box;
   }
 
   div#content {
     height: auto;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 120px);
     overflow: visible;
   }
 
@@ -26,20 +27,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px 0;
-    gap: 5px;
+    padding: 15px 0;
+    gap: 8px;
+    margin-bottom: 15px;
   }
 
   div.headerButton {
     font-size: 14px;
-    padding: 8px 12px;
-    margin: 2px;
+    padding: 10px 15px;
+    margin: 3px;
     border: 1px solid #333;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.1);
-    min-width: 80px;
+    min-width: 90px;
     text-align: center;
     border-left: 1px solid #333 !important;
+    white-space: nowrap;
   }
 
   /* Slider adjustments */
@@ -62,24 +65,26 @@
   div.location {
     width: 100% !important;
     float: none !important;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
+    margin-bottom: 20px;
   }
 
   /* Notifications */
   div#notifications {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     right: 0;
     width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 150px;
     overflow-y: auto;
     z-index: 100;
     background: rgba(255, 255, 255, 0.95);
-    padding: 10px;
+    padding: 8px 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
   }
 
   div#notifyGradient {
@@ -89,7 +94,8 @@
   .notification {
     margin-bottom: 5px;
     font-size: 12px;
-    line-height: 1.4;
+    line-height: 1.3;
+    padding: 2px 0;
   }
 
   /* Buttons */
@@ -97,10 +103,12 @@
     width: auto !important;
     min-width: 100px;
     margin: 5px;
-    padding: 10px 15px;
+    padding: 12px 16px;
     font-size: 14px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   /* Event panels */
@@ -111,11 +119,12 @@
     transform: translate(-50%, -50%) !important;
     width: 90% !important;
     max-width: 400px !important;
-    max-height: 80vh;
+    max-height: 75vh;
     overflow-y: auto;
     z-index: 200;
-    padding: 20px;
+    padding: 20px 15px;
     box-sizing: border-box;
+    margin: 10px;
   }
 
   .eventPanel:before {
@@ -131,7 +140,7 @@
   /* Stores container */
   div#storesContainer {
     position: relative !important;
-    top: 0 !important;
+    top: 10px !important;
     right: 0 !important;
     width: 100% !important;
     margin-top: 20px;
@@ -140,9 +149,11 @@
   div#stores, div#weapons, div#resources, div#special {
     width: 100%;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #333;
     border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    clear: both;
   }
 
   /* Village/Outside specific */
@@ -151,7 +162,8 @@
     top: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    clear: both;
   }
 
   div#workers {
@@ -159,7 +171,8 @@
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    margin-top: 15px;
+    margin-top: 20px;
+    clear: both;
   }
 
   /* World map */
@@ -170,9 +183,10 @@
 
   #map {
     min-width: 300px;
-    font-size: 10px;
-    line-height: 8px;
-    letter-spacing: 0.5px;
+    font-size: 11px;
+    line-height: 9px;
+    letter-spacing: 0.8px;
+    padding: 5px;
   }
 
   #bagspace-world {
@@ -185,9 +199,11 @@
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    display: inline-block;
-    margin: 5px 10px;
+    display: block;
+    margin: 8px 5px;
     background: transparent !important;
+    padding: 5px;
+    text-align: center;
   }
 
   /* Path/Outfitting */
@@ -201,7 +217,8 @@
     top: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    clear: both;
   }
 
   #pathScroller {
@@ -212,12 +229,14 @@
 
   /* Ship panel */
   div#shipPanel {
-    padding: 20px 10px;
+    padding: 25px 15px;
   }
 
   #hullRow, #engineRow {
     width: 100% !important;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    clear: both;
   }
 
   /* Space panel */
@@ -247,7 +266,8 @@
     top: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    clear: both;
   }
 
   /* Build buttons layout */
@@ -256,7 +276,8 @@
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    clear: both;
   }
 
   /* Menu adjustments */
@@ -265,7 +286,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -273,6 +294,7 @@
     gap: 10px;
     z-index: 150;
     border-top: 1px solid #333;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .menu span {
@@ -285,6 +307,7 @@
     font-size: 12px;
     min-width: 60px;
     text-align: center;
+    white-space: nowrap;
   }
 
   /* Logo adjustments */
@@ -292,7 +315,7 @@
     position: fixed;
     left: 10px;
     top: 10px;
-    z-index: 100;
+    z-index: 50;
   }
 
   .logo-icon {
@@ -303,8 +326,9 @@
   div.tooltip {
     position: fixed !important;
     z-index: 300;
-    max-width: 250px;
+    max-width: 280px;
     font-size: 12px;
+    line-height: 1.3;
   }
 
   /* Custom select for language */
@@ -325,9 +349,11 @@
   .storeRow, .workerRow, .outfitRow, .perkRow, .blueprintRow {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
+    align-items: flex-start;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 44px;
+    clear: both;
   }
 
   .row_key {
@@ -339,8 +365,10 @@
     flex-shrink: 0;
     float: none !important;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 5px;
+    margin-left: 10px;
   }
 
   /* Up/Down buttons for mobile */
@@ -349,15 +377,16 @@
     right: auto !important;
     top: auto !important;
     bottom: auto !important;
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
     border: 1px solid #333;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 2px;
+    margin: 2px;
+    flex-shrink: 0;
   }
 
   .upBtn:before, .dnBtn:before, .upManyBtn:before, .dnManyBtn:before {
@@ -374,43 +403,54 @@
   #fight {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     margin: 20px 0;
+    gap: 15px;
   }
 
   .fighter {
     text-align: center;
+    margin: 10px;
+    min-width: 120px;
   }
 
   #attackButtons, #healButtons, #exitButtons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin: 15px 0;
+    margin: 20px 0;
+    padding: 10px 0;
   }
 
   /* Loot buttons */
   #lootButtons {
-    margin: 20px 0;
+    margin: 25px 0;
+    padding: 15px 0;
   }
 
   .lootRow {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 12px;
+    margin: 15px 0;
     align-items: center;
+    padding: 8px 0;
   }
 
   .lootTake, .lootTakeAll {
     flex: 1;
-    min-width: 120px;
+    min-width: 130px;
+    margin: 5px;
   }
 
   /* Clear floats */
   .clear {
-    display: none;
+    display: block !important;
+    clear: both;
+    height: 0;
+    overflow: hidden;
   }
 
   /* Hide elements that don't work well on mobile */
@@ -426,6 +466,8 @@
   button, .button, input, select {
     min-height: 44px;
     min-width: 44px;
+    margin: 3px;
+    box-sizing: border-box;
   }
 
   /* Touch feedback */
@@ -436,12 +478,24 @@
 
   /* Virtual D-Pad styles */
   #virtualDPad {
-    opacity: 0.7;
+    opacity: 0.8;
     transition: opacity 0.3s ease;
   }
 
   #virtualDPad:hover {
     opacity: 1;
+  }
+
+  /* 文本内容间距 */
+  #description > div {
+    margin-bottom: 15px !important;
+    padding: 8px 0 !important;
+    line-height: 1.4;
+  }
+
+  /* 按钮容器间距 */
+  #buttons {
+    margin-top: 20px !important;
   }
 
   /* Dark mode adjustments for mobile */
@@ -470,7 +524,7 @@
 /* Landscape phone adjustments */
 @media screen and (max-width: 768px) and (orientation: landscape) {
   div#content {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 80px);
   }
 
   .menu {
@@ -478,7 +532,7 @@
   }
 
   .menu span {
-    padding: 6px 10px;
+    padding: 8px 12px;
     font-size: 11px;
   }
 
@@ -494,20 +548,21 @@
   }
 
   div.headerButton {
-    font-size: 12px;
-    padding: 6px 8px;
-    min-width: 60px;
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: 70px;
   }
 
   div.button {
-    font-size: 12px;
-    padding: 8px 12px;
-    min-width: 80px;
+    font-size: 13px;
+    padding: 10px 14px;
+    min-width: 90px;
   }
 
   .eventPanel {
     width: 95% !important;
-    padding: 15px;
+    padding: 18px 12px;
+    max-height: 85vh;
   }
 
   #map {
@@ -517,7 +572,18 @@
 
   .menu span {
     font-size: 10px;
-    padding: 6px 8px;
+    padding: 8px 10px;
     min-width: 50px;
+  }
+
+  /* 确保小屏幕上的间距 */
+  .storeRow, .workerRow, .outfitRow, .perkRow, .blueprintRow {
+    padding: 10px 0;
+    margin: 8px 0;
+  }
+
+  #attackButtons, #healButtons, #exitButtons {
+    gap: 8px;
+    margin: 15px 0;
   }
 }
