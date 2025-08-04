@@ -1,0 +1,485 @@
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+  /* Base mobile styles */
+  body {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Main wrapper adjustments */
+  div#wrapper {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  div#content {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    overflow: visible;
+  }
+
+  /* Header adjustments */
+  div#header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 5px;
+  }
+
+  div.headerButton {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 2px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    min-width: 80px;
+    text-align: center;
+    border-left: 1px solid #333 !important;
+  }
+
+  /* Slider adjustments */
+  div#outerSlider {
+    position: relative;
+    width: 100% !important;
+  }
+
+  div#outerSlider > div {
+    width: 100% !important;
+    float: none !important;
+    height: auto !important;
+  }
+
+  div#locationSlider {
+    position: relative;
+    width: 100% !important;
+  }
+
+  div.location {
+    width: 100% !important;
+    float: none !important;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Notifications */
+  div#notifications {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  div#notifyGradient {
+    display: none;
+  }
+
+  .notification {
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* Buttons */
+  div.button {
+    width: auto !important;
+    min-width: 100px;
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Event panels */
+  .eventPanel {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 200;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .eventPanel:before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+
+  /* Stores container */
+  div#storesContainer {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-top: 20px;
+  }
+
+  div#stores, div#weapons, div#resources, div#special {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+
+  /* Village/Outside specific */
+  div#village {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  div#workers {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin-top: 15px;
+  }
+
+  /* World map */
+  div#worldOuter {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  #map {
+    min-width: 300px;
+    font-size: 10px;
+    line-height: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  #bagspace-world {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  #backpackTitle, #backpackSpace, #healthCounter {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: inline-block;
+    margin: 5px 10px;
+    background: transparent !important;
+  }
+
+  /* Path/Outfitting */
+  div#outfitting {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  div#perks {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  #pathScroller {
+    max-height: none;
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* Ship panel */
+  div#shipPanel {
+    padding: 20px 10px;
+  }
+
+  #hullRow, #engineRow {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+
+  /* Space panel */
+  #spacePanel {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+  }
+
+  #starsContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #ship {
+    font-size: 24px;
+  }
+
+  /* Fabricator */
+  div#fabricateButtons, div#blueprints {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  /* Build buttons layout */
+  div#buildBtns, div#craftBtns, div#buyBtns {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  /* Menu adjustments */
+  .menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    z-index: 150;
+    border-top: 1px solid #333;
+  }
+
+  .menu span {
+    float: none;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  /* Logo adjustments */
+  .logo {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 100;
+  }
+
+  .logo-icon {
+    height: 30px;
+  }
+
+  /* Tooltips */
+  div.tooltip {
+    position: fixed !important;
+    z-index: 300;
+    max-width: 250px;
+    font-size: 12px;
+  }
+
+  /* Custom select for language */
+  .customSelectOptions > ul {
+    position: fixed;
+    bottom: 60px;
+    right: 10px;
+    background: white;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 300;
+  }
+
+  /* Row layouts */
+  .storeRow, .workerRow, .outfitRow, .perkRow, .blueprintRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .row_key {
+    flex: 1;
+    float: none !important;
+  }
+
+  .row_val {
+    flex-shrink: 0;
+    float: none !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Up/Down buttons for mobile */
+  .upBtn, .dnBtn, .upManyBtn, .dnManyBtn {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+  }
+
+  .upBtn:before, .dnBtn:before, .upManyBtn:before, .dnManyBtn:before {
+    border-width: 4px !important;
+    margin-left: -4px !important;
+  }
+
+  .upBtn:after, .dnBtn:after, .upManyBtn:after, .dnManyBtn:after {
+    border-width: 2px !important;
+    margin-left: -2px !important;
+  }
+
+  /* Combat adjustments */
+  #fight {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .fighter {
+    text-align: center;
+  }
+
+  #attackButtons, #healButtons, #exitButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  /* Loot buttons */
+  #lootButtons {
+    margin: 20px 0;
+  }
+
+  .lootRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+  }
+
+  .lootTake, .lootTakeAll {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  /* Clear floats */
+  .clear {
+    display: none;
+  }
+
+  /* Hide elements that don't work well on mobile */
+  .tooltip.top, .tooltip.bottom, .tooltip.left, .tooltip.right {
+    display: none !important;
+  }
+
+  /* Touch-friendly sizing */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+
+  button, .button, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape phone adjustments */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  div#content {
+    min-height: calc(100vh - 40px);
+  }
+
+  .menu {
+    padding: 5px;
+  }
+
+  .menu span {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .eventPanel {
+    max-height: 90vh;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  div.headerButton {
+    font-size: 12px;
+    padding: 6px 8px;
+    min-width: 60px;
+  }
+
+  div.button {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: 80px;
+  }
+
+  .eventPanel {
+    width: 95% !important;
+    padding: 15px;
+  }
+
+  #map {
+    font-size: 8px;
+    line-height: 6px;
+  }
+
+  .menu span {
+    font-size: 10px;
+    padding: 6px 8px;
+    min-width: 50px;
+  }
+}

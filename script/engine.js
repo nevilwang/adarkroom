@@ -206,6 +206,9 @@
       swipeElement.on('swipeup', Engine.swipeUp);
       swipeElement.on('swipedown', Engine.swipeDown);
 
+      // Add touch support for mobile
+      Engine.addMobileTouchSupport();
+
       // subscribe to stateUpdates
       $.Dispatch('stateUpdate').subscribe(Engine.handleStateUpdates);
 
@@ -261,7 +264,7 @@
     },
 
     isMobile: function() {
-      return ( location.search.indexOf( 'ignorebrowser=true' ) < 0 && /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test( navigator.userAgent ) );
+      return false; // Always allow mobile access now
     },
 
     saveGame: function() {
