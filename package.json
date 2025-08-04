@@ -8,6 +8,7 @@
   "license": "MPL-2.0",
   "scripts": {
     "start": "node dev-server.js",
+    "build": "echo 'No specific build process defined for this project. Files are served directly.'",
     "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot"
   },
   "dependencies": {
