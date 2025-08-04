@@ -427,6 +427,44 @@
     min-height: 44px;
     min-width: 44px;
   }
+
+  /* Touch feedback */
+  .button.touched {
+    background: rgba(0, 0, 0, 0.2) !important;
+    transform: scale(0.95);
+  }
+
+  /* Virtual D-Pad styles */
+  #virtualDPad {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  #virtualDPad:hover {
+    opacity: 1;
+  }
+
+  /* Dark mode adjustments for mobile */
+  body.dark #virtualDPad div {
+    background: rgba(40, 40, 35, 0.8) !important;
+    border-color: #EEE !important;
+    color: #EEE !important;
+  }
+
+  body.dark .menu {
+    background: rgba(40, 40, 35, 0.95) !important;
+    border-top-color: #EEE !important;
+  }
+
+  body.dark .menu span {
+    border-color: #EEE !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  body.dark div#notifications {
+    background: rgba(40, 40, 35, 0.95) !important;
+    color: #EEE !important;
+  }
 }
 
 /* Landscape phone adjustments */

@@ -605,20 +605,30 @@
       $('div.headerButton').removeClass('selected');
       module.tab.addClass('selected');
 
-      var slider = $('#locationSlider');
-      var stores = $('#storesContainer');
-      var panelIndex = $('.location').index(module.panel);
-      var diff = Math.abs(panelIndex - currentIndex);
-      slider.animate({left: -(panelIndex * 700) + 'px'}, 300 * diff);
+      // On mobile, don't animate the slider, just show/hide panels
+      if (window.innerWidth <= 768) {
+        $('.location').hide();
+        module.panel.show();
+        
+        // Handle stores container
+        var stores = $('#storesContainer');
+        if (module == Room || module == Path || module == Fabricator) {
+          stores.show();
+        }
+      } else {
+        // Desktop behavior
+        var slider = $('#locationSlider');
+        var stores = $('#storesContainer');
+        var panelIndex = $('.location').index(module.panel);
+        var diff = Math.abs(panelIndex - currentIndex);
+        slider.animate({left: -(panelIndex * 700) + 'px'}, 300 * diff);
 
-      if($SM.get('stores.wood') !== undefined) {
-        // FIXME Why does this work if there's an animation queue...?
-        stores.animate({right: -(panelIndex * 700) + 'px'}, 300 * diff);
+        if($SM.get('stores.wood') !== undefined) {
+          stores.animate({right: -(panelIndex * 700) + 'px'}, 300 * diff);
+        }
       }
 
       if(Engine.activeModule == Room || Engine.activeModule == Path || Engine.activeModule == Fabricator) {
-        // Don't fade out the weapons if we're switching to a module
-        // where we're going to keep showing them anyway.
         if (module != Room && module != Path && module != Fabricator) {
           $('div#weapons').animate({opacity: 0}, 300);
         }
@@ -629,8 +639,11 @@
       }
 
       Engine.activeModule = module;
-      module.onArrival(diff);
+      module.onArrival(window.innerWidth <= 768 ? 0 : Math.abs($('.location').index(module.panel) - currentIndex));
       Notifications.printQueue(module);
+      
+      // Trigger module change event for mobile features
+      $(document).trigger('moduleChange');
     },
 
     /* Move the stores panel beneath top_container (or to top: 0px if top_container
@@ -848,7 +861,122 @@
 
       return setTimeout(callback, timeout);
 
-    }
+    },
+
+    addMobileTouchSupport: function() {
+      // Add touch controls for world navigation
+      if (window.innerWidth <= 768) {
+        // Create virtual D-pad for world navigation
+        Engine.createVirtualDPad();
+        
+        // Improve button touch targets
+        $(document).on('touchstart', '.button', function(e) {
+          $(this).addClass('touched');
+        });
+        
+        $(document).on('touchend', '.button', function(e) {
+          $(this).removeClass('touched');
+        });
+        
+        // Prevent zoom on double tap
+        $(document).on('touchend', function(e) {
+          var now = (new Date()).getTime();
+          if (now - Engine.lastTouchEnd <= 300) {
+            e.preventDefault();
+          }
+          Engine.lastTouchEnd = now;
+        });
+      }
+    },
+
+    createVirtualDPad: function() {
+      // Only create D-pad when in World module
+      $(document).on('moduleChange', function() {
+        if (Engine.activeModule && Engine.activeModule.name === 'World') {
+          Engine.showVirtualDPad();
+        } else {
+          Engine.hideVirtualDPad();
+        }
+      });
+    },
+
+    showVirtualDPad: function() {
+      if ($('#virtualDPad').length > 0) return;
+      
+      var dpad = $('<div>')
+        .attr('id', 'virtualDPad')
+        .css({
+          position: 'fixed',
+          bottom: '80px',
+          right: '20px',
+          width: '120px',
+          height: '120px',
+          zIndex: 200
+        })
+        .appendTo('body');
+
+      // Create directional buttons
+      var directions = [
+        {id: 'up', text: '↑', style: {top: '0', left: '40px', width: '40px', height: '40px'}},
+        {id: 'left', text: '←', style: {top: '40px', left: '0', width: '40px', height: '40px'}},
+        {id: 'right', text: '→', style: {top: '40px', left: '80px', width: '40px', height: '40px'}},
+        {id: 'down', text: '↓', style: {top: '80px', left: '40px', width: '40px', height: '40px'}}
+      ];
+
+      directions.forEach(function(dir) {
+        $('<div>')
+          .attr('id', 'dpad-' + dir.id)
+          .css($.extend({
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.8)',
+            border: '2px solid #333',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            userSelect: 'none'
+          }, dir.style))
+          .text(dir.text)
+          .on('touchstart', function(e) {
+            e.preventDefault();
+            $(this).css('background', 'rgba(200, 200, 200, 0.8)');
+            Engine.handleDPadPress(dir.id);
+          })
+          .on('touchend', function(e) {
+            e.preventDefault();
+            $(this).css('background', 'rgba(255, 255, 255, 0.8)');
+          })
+          .appendTo(dpad);
+      });
+    },
+
+    hideVirtualDPad: function() {
+      $('#virtualDPad').remove();
+    },
+
+    handleDPadPress: function(direction) {
+      if (Engine.activeModule && Engine.activeModule.name === 'World') {
+        switch(direction) {
+          case 'up':
+            World.moveNorth();
+            break;
+          case 'down':
+            World.moveSouth();
+            break;
+          case 'left':
+            World.moveWest();
+            break;
+          case 'right':
+            World.moveEast();
+            break;
+        }
+      }
+    },
+
+    lastTouchEnd: 0
   };
 
   function eventNullifier(e) {

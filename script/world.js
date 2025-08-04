@@ -949,6 +949,9 @@ var World = {
     // Home safe! Commit the changes.
     $SM.setM('game.world', World.state);
     World.testMap();
+    
+    // Hide virtual D-pad when leaving world
+    Engine.hideVirtualDPad();
 
     if(World.state.sulphurmine && $SM.get('game.buildings["sulphur mine"]', true) === 0) {
       $SM.add('game.buildings["sulphur mine"]', 1);
